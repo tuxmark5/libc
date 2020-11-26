@@ -153,6 +153,12 @@ cfg_if! {
 
         mod wasi;
         pub use wasi::*;
+    } else if #[cfg(target_arch = "wasm32")] {
+        mod fixed_width_ints;
+        pub use fixed_width_ints::*;
+
+        mod wasi;
+        pub use wasi::*;
     } else {
         // non-supported targets: empty...
     }
